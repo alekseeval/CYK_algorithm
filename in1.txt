@@ -1,0 +1,9 @@
+S MN TA KB
+M TA KB
+N MN TA KB
+A a
+T a
+T AM
+B b
+K b
+K BM

@@ -1,0 +1,12 @@
+S XY XC XD EP AB FB GS HS
+P XY XC XD EP
+C PY
+D YP
+E XC
+F AS
+G AB
+H FB
+A (
+B )
+X [
+Y ]
