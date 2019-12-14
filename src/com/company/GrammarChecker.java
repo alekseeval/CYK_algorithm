@@ -1,5 +1,8 @@
 package com.company;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class GrammarChecker {
 
     String[][] grammar;
@@ -29,19 +32,31 @@ public class GrammarChecker {
             ans_mat[i][i] = r.toString();
         }
 
-        //Fill the rest of the matrix
-        for(int i = 1; i < word.length(); i++){
-            for(int j = i; j < word.length(); j++){
-                r = new StringBuilder();
-                for(int k = j - i; k < j; k++){
-                    r.append(combine(ans_mat[j - i][k], ans_mat[k + 1][j]));
-                }
-                ans_mat[j - i][j] = r.toString();
+//        //Fill the rest of the matrix
+        // Тут все по картинке понятна (НАВЕРНА)
+        for (int j = 1; j < ans_mat.length; j++) {
+            for (int i = 0; i < ans_mat.length - j; i++) {
+                String value = getValueForPosition(i, i + j, ans_mat);
+                ans_mat[i][i + j] = value;
             }
         }
 
         //The last column of first row should have the start symbol
         return ans_mat[0][word.length() - 1].contains("S");
+    }
+
+    String getValueForPosition(int posI, int posJ, String[][] ans_mat){
+
+        // Количество элементов на спуск
+        int n = posJ-posI;
+
+        StringBuilder temp = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            temp.append(combine(ans_mat[posI][posI + i], ans_mat[posI + i + 1][posJ]));
+        }
+
+        return temp.toString();
+
     }
 
     //Checks if the passed string can be achieved for the grammar

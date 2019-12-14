@@ -14,8 +14,8 @@ public class Main {
         String[][] grammar_lab3 = readFromFile("in2.txt");
 
         // Words to check
-        String word1 = "abababbbaabbbabababbbbbb";
-        String word2 = "(()((([][][[[]]])))(()()))";
+        String word1 = "aabbaaabbabbaabb";
+        String word2 = "()()()()()([][[][]])";
 
         // Creating checkers
         GrammarChecker gc1 = new GrammarChecker(grammar_lab2);
