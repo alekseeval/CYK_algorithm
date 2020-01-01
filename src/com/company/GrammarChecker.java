@@ -43,8 +43,7 @@ public class GrammarChecker {
 
     String getValueForPosition(int posI, int posJ, String[][] ans_mat){
 
-        // Количество элементов на спуск
-        int n = posJ-posI;
+        int n = posJ-posI; // Subword length
 
         StringBuilder temp = new StringBuilder();
         for (int i = 0; i < n; i++) {
@@ -55,7 +54,7 @@ public class GrammarChecker {
 
     }
 
-    //Checks if the passed string can be achieved for the grammar
+    // Checks if the passed string can be achieved for the grammar
     private String check(String a){
         StringBuilder result = new StringBuilder();
         for (String[] strings : grammar) {
@@ -68,7 +67,7 @@ public class GrammarChecker {
         return result.toString();
     }
 
-    //Makes all possible combinations out of the two string passed
+    // Makes all possible combinations out of the two string passed
     private String combine(String a, String b){
         StringBuilder result = new StringBuilder();
         for(int i = 0; i < a.length(); i++){
